@@ -21,7 +21,6 @@ app.get('/',(req, res) => {
 app.post('/getChatBot',jsonParser, async (req, res) => {
     let message = req.body.message;
   const configuration = new Configuration({
-    // apiKey: process.env.OPENAI_API_KEY,
     apiKey:Your_openai_api_key,
   });
   const openai = new OpenAIApi(configuration);
@@ -34,7 +33,7 @@ app.post('/getChatBot',jsonParser, async (req, res) => {
         frequency_penalty: 0,
         presence_penalty: 0,
       });
-      console.log(response.data.choices[0].text);
+      // console.log(response.data.choices[0].text);
       let send_response = response.data.choices[0].text
       res.send({send_response})
 })
